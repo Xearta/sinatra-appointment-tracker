@@ -1,0 +1,14 @@
+<h1>Appointment Information</h1>
+
+<%= Patient.find(@appointment.patient_id).name  %><br />
+<%= Patient.find(@appointment.patient_id).age  %> <br />
+Date/Time Coming soon
+
+<br/>
+<a href="/appointments">Home</a>
+<a href="/appointments/<%=@appointment.id%>/edit">Edit</a>
+<br/><br/>
+<form method="post" action="/appointments/<%= @appointment.id %>/delete">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Appointment">
+</form>

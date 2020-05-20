@@ -1,0 +1,22 @@
+<h1>Create An Appointment</h1>
+
+<form action="/appointments" method="POST">
+  <h3>Existing Patients</h3>
+  <% @patients.each do |patient| %>
+    <input type="radio" name="appointment[patient_id]" id="<%= patient.id %>" value="<%= patient.id %>">
+            <%= patient.name %> (<%= patient.age %>)<br>
+  <% end %>
+  <br>
+
+  <h3>New Patient</h3>
+  <label>Patient Name: </label>
+  <br>
+  <input type="text" name="appointment[patient][name]" id="patient_name"></input>
+  <label>Patient Age: </label>
+  <br>
+  <input type="text" name="appointment[patient][age]" id="patient_age"></input>
+  <br><br>
+
+
+  <input type="submit" value="Create Appointment">
+</form>

@@ -8,6 +8,7 @@
 
 **STRETCH GOALS:**
 # Depreciate the appointment when 'overdue'
+# Don't allow booking if the patient already has an appointment at that date/time
 
 
 **Requirements:**

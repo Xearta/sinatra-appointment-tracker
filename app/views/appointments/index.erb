@@ -1,0 +1,22 @@
+<h3>Your Appointments</h3>
+<% @appointments.each do |appointment| %>
+  <% if current_user.id == appointment.user_id %>
+    <p>Patient: <%= Patient.find(appointment.patient_id).name %> (<%= Patient.find(appointment.patient_id).age %>)</p>
+    <p>Date/Time: <%= appointment.appointment_date.strftime("%m/%d/%Y %I:%M %p") %> </p>
+    <a href="/appointments/<%=appointment.id%>">View</a>
+    <a href="/appointments/<%=appointment.id%>/edit">Edit</a>
+    <br />
+    <br />
+  <% end %>
+<% end %>
+
+<h3>All Appointments</h3>
+<% @appointments.each do |appointment| %>
+  <p>Physician: <%= User.find(appointment.user_id).username %></p>
+  <p>Patient: <%= Patient.find(appointment.patient_id).name %> (<%= Patient.find(appointment.patient_id).age %>)</p>
+  <p>Date/Time: <%= appointment.appointment_date.strftime("%m/%d/%Y %I:%M %p") %> </p>
+  <a href="/appointments/<%=appointment.id%>">View</a>
+  <a href="/appointments/<%=appointment.id%>/edit">Edit</a>
+  <br />
+  <br />
+<% end %>

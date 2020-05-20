@@ -1,0 +1,28 @@
+<h1>Update Appointment</h1>
+
+<h2>Edits for <%= Patient.find(@appointment.patient_id).name %></h2>
+
+  <form action="/appointments/<%= @appointment.id %>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <p>Select an existing patient, create a new one, or change the date/time</p>
+
+
+    <h3>Existing Patients</h3>
+    <% @patients.each do |patient| %>
+      <input type="radio" name="appointment[patient_id]" id="<%= patient.id %>" value="<%= patient.id %>" <%='checked' if @appointment.patient == patient %>><%= patient.name %> (<%= patient.age %>)</input><br>
+    <% end %>
+    <br>
+
+    <h3>New Patient</h3>
+    <label>Patient Name: </label>
+    <br>
+    <input type="text" name="appointment[patient][name]" id="patient_name"></input>
+    <label>Patient Age: </label>
+    <br>
+    <input type="text" name="appointment[patient][age]" id="patient_age"></input>
+    <br><br>
+
+    <h3>Change Date/Time (SOON)</h3>
+
+    <input type="submit" value="Update Appointment">
+  </form>
