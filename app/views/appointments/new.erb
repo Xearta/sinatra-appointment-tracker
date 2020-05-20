@@ -1,31 +1,34 @@
-<h1>Create An Appointment</h1>
-<p><strong>Pick an Existing patient or create a new one! Then, pick a time for the appointment!</strong></p>
+<h3>Create An Appointment</h3>
+<p style="text-align:center"><strong>Pick an Existing patient or create a new one! Then, pick a time for the appointment!</strong></p>
+<p style="text-align:center"><em>*Note: If you enter a patient in the "New Patient" area, you cannot also select an exisiting patient.*</em>
+<br/>
 
 <form action="/appointments" method="POST">
   <h3>Existing Patients</h3>
+
   <% @patients.each do |patient| %>
-    <input type="radio" name="appointment[patient_id]" id="<%= patient.id %>" value="<%= patient.id %>">
-            <%= patient.name %> (<%= patient.age %>)<br>
+  <div style="display:inline-block;padding:5px"><input type="radio" name="appointment[patient_id]" id="<%= patient.id %>" value="<%= patient.id %>">
+            <%= patient.name %> (Age: <%= patient.age %>)</div>
   <% end %>
-  <br>
 
   <h3>New Patient</h3>
-  <label>Patient Name: </label>
-  <br>
-  <input type="text" name="appointment[patient][name]" id="patient_name"></input><br>
-  <label>Patient Age: </label>
-  <br>
-  <input type="text" name="appointment[patient][age]" id="patient_age"></input>
+  <table style="width:50%">
+  <td><label>Patient Name: </label>
+  <input type="text" placeholder="Patient Name" name="appointment[patient][name]" id="patient_name"></input></td>
+  <td><label>Patient Age: </label>
+  <input type="text" placeholder="Patient Age" name="appointment[patient][age]" id="patient_age"></input></td>
+  </table>
   <br><br>
 
-
-  <label for="date">Appointment Date:</label>
+  <table style="width:50%">
+  <td><label for="date">Appointment Date:</label>
   <input type="date" id="date" name="appointment[date]"
        value="2020-05-20"
-       min="2020-05-20" max="2021-12-31">
-<br>
- <label for="time">Appointment Time:</label>
- <input type="time" id="time" name="appointment[time]">
-<br>
+       min="2020-05-20" max="2021-12-31"></td>
+
+ <td><label for="time">Appointment Time:</label>
+ <input type="time" id="time" name="appointment[time]"></td>
+</table>
+
 <input type="submit" value="Create Appointment">
 </form>

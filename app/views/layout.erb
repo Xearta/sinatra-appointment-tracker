@@ -1,14 +1,15 @@
 <!doctype html>
 <html>
   <head>
-    <title>Appointment Tracker</title>
+    <title>Appointment Tracker App</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link href="/stylesheets/main.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <nav>
       <% if logged_in? %>
 
-        <a href="/appointments/new"> Create Appointment </a>
+        <a href="/appointments/new"> Create Appointment </a>|
         <a href="/logout"> Log Out </a>
         <p>Welcome, <%=current_user.username %></p>
 
@@ -19,7 +20,8 @@
 
     </nav>
     <div class="container">
-      <h1>Appointment Tracker</h1>
+      <h1>Appointment Tracker App</h1>
+      <hr>
       <% if !@error_message.nil? %>
       <div class="alert alert-warning">
         <%= @error_message %>
