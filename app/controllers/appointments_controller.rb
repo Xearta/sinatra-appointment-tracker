@@ -26,6 +26,7 @@ class AppointmentsController < ApplicationController
       params[:appointment]["user_id"] = current_user.id
     end
     #######
+    dt = DateTime.parse(params[:appointment][:date] + " " + params[:appointment][:time])
 
     @appointment = Appointment.find(params[:id])
     if current_user.id == @appointment[:user_id]
@@ -34,6 +35,7 @@ class AppointmentsController < ApplicationController
       else
         @appointment.patient_id = params[:appointment][:patient_id]
       end
+      @appointment.appointment_date = dt
       @appointment.save
       redirect "appointments/#{@appointment.id}"
     else
@@ -45,11 +47,14 @@ class AppointmentsController < ApplicationController
   get '/appointments/:id' do
     redirect_if_not_logged_in
     @appointment = Appointment.find(params[:id])
+    @patient = Patient.find(@appointment.patient_id)
     erb :'appointments/show'
   end
 
   post '/appointments' do
     redirect_if_not_logged_in
+    dt = DateTime.parse(params[:appointment][:date] + " " + params[:appointment][:time])
+
     params[:appointment][:user_id] = current_user.id
 
     @appointment = Appointment.create(user_id: params[:appointment][:user_id])
@@ -58,7 +63,7 @@ class AppointmentsController < ApplicationController
     else
       @appointment.patient_id = params[:appointment][:patient_id]
     end
-    @appointment.appointment_date = DateTime.now
+    @appointment.appointment_date = dt
 
     @appointment.save
     # TODO: FIX ME!

@@ -1,4 +1,5 @@
 <h1>Create An Appointment</h1>
+<p><strong>Pick an Existing patient or create a new one! Then, pick a time for the appointment!</strong></p>
 
 <form action="/appointments" method="POST">
   <h3>Existing Patients</h3>
@@ -11,12 +12,20 @@
   <h3>New Patient</h3>
   <label>Patient Name: </label>
   <br>
-  <input type="text" name="appointment[patient][name]" id="patient_name"></input>
+  <input type="text" name="appointment[patient][name]" id="patient_name"></input><br>
   <label>Patient Age: </label>
   <br>
   <input type="text" name="appointment[patient][age]" id="patient_age"></input>
   <br><br>
 
 
-  <input type="submit" value="Create Appointment">
+  <label for="date">Appointment Date:</label>
+  <input type="date" id="date" name="appointment[date]"
+       value="2020-05-20"
+       min="2020-05-20" max="2021-12-31">
+<br>
+ <label for="time">Appointment Time:</label>
+ <input type="time" id="time" name="appointment[time]">
+<br>
+<input type="submit" value="Create Appointment">
 </form>

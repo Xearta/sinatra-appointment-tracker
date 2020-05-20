@@ -9,20 +9,28 @@
 
     <h3>Existing Patients</h3>
     <% @patients.each do |patient| %>
-      <input type="radio" name="appointment[patient_id]" id="<%= patient.id %>" value="<%= patient.id %>" <%='checked' if @appointment.patient == patient %>><%= patient.name %> (<%= patient.age %>)</input><br>
+      <input type="radio" name="appointment[patient_id]" id="<%= patient.id %>" value="<%= patient.id %>" <%='checked' if @appointment.patient == patient %>><%= patient.name %> (Age: <%= patient.age %>)</input><br>
     <% end %>
     <br>
 
     <h3>New Patient</h3>
     <label>Patient Name: </label>
     <br>
-    <input type="text" name="appointment[patient][name]" id="patient_name"></input>
+    <input type="text" name="appointment[patient][name]" id="patient_name"></input><br/>
     <label>Patient Age: </label>
     <br>
     <input type="text" name="appointment[patient][age]" id="patient_age"></input>
     <br><br>
 
-    <h3>Change Date/Time (SOON)</h3>
+    <h3>Change The Appointment Date/Time</h3>
+    <label for="date">Appointment Date:</label>
+    <input type="date" id="date" name="appointment[date]"
+         value="<%=@appointment.appointment_date.year%>-0<%=@appointment.appointment_date.month%>-<%=@appointment.appointment_date.day%>"
+         min="2020-05-20" max="2021-12-31">
+  <br>
+   <label for="time">Appointment Time:</label>
+   <input type="time" id="time" value="<%=@appointment.appointment_date.hour%>:<%=@appointment.appointment_date.min%>" name="appointment[time]">
+  <br>
 
     <input type="submit" value="Update Appointment">
   </form>

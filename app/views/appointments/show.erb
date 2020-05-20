@@ -1,8 +1,8 @@
 <h1>Appointment Information</h1>
 
-<%= Patient.find(@appointment.patient_id).name  %><br />
-<%= Patient.find(@appointment.patient_id).age  %> <br />
-Date/Time Coming soon
+Patient: <%= @patient.name  %><br />
+Age: <%= @patient.age  %> <br />
+Date/Time: <%= @appointment.appointment_date.strftime("%m/%d/%Y %I:%M %p") %>
 
 <br/>
 <a href="/appointments">Home</a>
