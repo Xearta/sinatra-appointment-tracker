@@ -5,6 +5,7 @@
     <th>Appointment Date/Time</th>
     <th>Appointment Options</th>
   </tr>
+<% @appointments = @appointments.sort_by { |appt| appt.appointment_date } %>
 <% @appointments.each do |appointment| %>
   <% if current_user.id == appointment.user_id %>
     <tr>
