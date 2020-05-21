@@ -39,7 +39,6 @@
     <th>Appointment Options</th>
   </tr>
 <% @appointments.each do |appointment| %>
-<% if current_user.id == appointment.user_id %>
   <% if appointment.appointment_date < DateTime.now %>
     <%= "<tr class='passed'>" %>
   <% else %>
@@ -57,5 +56,4 @@
   <a href="/appointments/<%=appointment.id%>/edit">Edit</a>
   </td>
 </tr>
-<% end %>
 <% end %>

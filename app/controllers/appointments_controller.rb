@@ -9,6 +9,7 @@ class AppointmentsController < ApplicationController
     redirect_if_not_logged_in
     @error_message = params[:error]
     @patients = Patient.all
+    @appointments = Appointment.all
     erb :'appointments/new'
   end
 

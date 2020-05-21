@@ -6,8 +6,10 @@
   <h3>Existing Patients</h3>
 
   <% @patients.each do |patient| %>
-  <div style="display:inline-block;padding:5px"><input type="radio" name="appointment[patient_id]" id="<%= patient.id %>" value="<%= patient.id %>">
-            <%= patient.name %> (Age: <%= patient.age %>)</div>
+  <div style="display:inline-block;padding:5px">
+    <input type="radio" name="appointment[patient_id]" id="<%= patient.id %>" value="<%= patient.id %>">
+    <%= patient.name %> (Age: <%= patient.age %>)
+  </div>
   <% end %>
   <hr>
   <h3>New Patient</h3>
