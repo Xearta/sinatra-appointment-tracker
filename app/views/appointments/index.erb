@@ -1,4 +1,4 @@
-<h3>Your Appointments</h3>
+<h3>Your Appointments (<%= current_user.appointments.count %>)</h3>
 <table style="width:100%">
   <tr>
     <th>Patient Name</th>
@@ -30,7 +30,7 @@
 <hr>
 
 
-<h3>All Appointments</h3>
+<h3>All Appointments (<%= Appointment.all.count %>)</h3>
 <table style="width:100%">
   <tr>
     <th>Physician</th>

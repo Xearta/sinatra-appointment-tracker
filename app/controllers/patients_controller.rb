@@ -38,12 +38,14 @@ class PatientsController < ApplicationController
   delete '/patients/:id/delete' do
     redirect_if_not_logged_in
     @patient = Patient.find(params[:id])
-    Appointment.all.each do |appointment|
-      if appointment.patient_id == @patient.id
+    @patient.appointments.each do |appointment|
+      if current_user.id == appointment.user_id
         appointment.delete
       end
     end
-    @patient.delete
+    if @patient.appointments.empty?
+      @patient.delete
+    end
     redirect '/patients'
   end
 end
