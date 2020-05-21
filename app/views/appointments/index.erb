@@ -8,7 +8,11 @@
 <% @appointments = @appointments.sort_by { |appt| appt.appointment_date } %>
 <% @appointments.each do |appointment| %>
   <% if current_user.id == appointment.user_id %>
-    <tr>
+    <% if appointment.appointment_date < DateTime.now %>
+      <%= "<tr class='passed'>" %>
+    <% else %>
+        <%= "<tr>" %>
+    <%end%>
       <td><p>
         Patient: <a href="/patients/<%=Patient.find(appointment.patient_id).id%>">
                 <%= Patient.find(appointment.patient_id).name %>
@@ -35,7 +39,12 @@
     <th>Appointment Options</th>
   </tr>
 <% @appointments.each do |appointment| %>
-<tr>
+<% if current_user.id == appointment.user_id %>
+  <% if appointment.appointment_date < DateTime.now %>
+    <%= "<tr class='passed'>" %>
+  <% else %>
+      <%= "<tr>" %>
+  <%end%>
   <td><p>Physician: <%= User.find(appointment.user_id).username %></p></td>
   <td><p>
     Patient: <a href="/patients/<%=Patient.find(appointment.patient_id).id%>">
@@ -47,4 +56,6 @@
   <a href="/appointments/<%=appointment.id%>">View</a>
   <a href="/appointments/<%=appointment.id%>/edit">Edit</a>
   </td>
+</tr>
+<% end %>
 <% end %>

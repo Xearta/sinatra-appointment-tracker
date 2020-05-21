@@ -1,3 +1,9 @@
+.passed {
+  color: #e8e8e8;
+  opacity: 60%;
+  text-decoration: line-through;
+}
+
 body {
   background-color: #777;
   color: #f0f0f0;
