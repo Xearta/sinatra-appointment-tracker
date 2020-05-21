@@ -15,6 +15,7 @@
 - Fix all error handling
   - Fix the error on the appointment controller checking for error_message
   - Don't allow to create an empty appointment/patient
+- If you delete the database the whole thing borks. The session doesn't clear!
 
 **Requirements:**
 - Build a MVC App
@@ -27,17 +28,3 @@
     - Ensure that users can edit and delete only their own resources - not resources created by other users.
 - Validate user input so bad data cannot be persisted to the database.
 *BONUS: Display validation failures to user with error messages. (This is an optional feature, challenge yourself and give it a shot!)**
-
-
-**Steps:**
-- Draw out the models
-  - Their attributes, relationships, basic flow of application
-- Code the migrations
-- Code the model classes
-- Association's (Validators)
-
-- Create seed data and test
-- Code the controller's helper methods
-   - #logged_in? and #current_user
-- Controller routes (Different controller for each model)
-- Build views and controller actions as needed

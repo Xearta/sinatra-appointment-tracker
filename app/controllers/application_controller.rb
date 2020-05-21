@@ -10,6 +10,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
+    redirect_if_not_logged_in
     redirect '/appointments'
   end
 
