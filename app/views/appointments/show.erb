@@ -1,4 +1,4 @@
-<h3 style="text-align:center">Appointment Information</h3>
+<h3>Appointment Information</h3>
 <table style="width:100%">
   <tr>
     <th>Patient Name</th>
@@ -8,7 +8,7 @@
     <th>Delete Appointment</th>
   </tr>
   <tr>
-    <td><%= @patient.name %></td>
+    <td><a href="/patients/<%=@patient.id%>"><%= @patient.name %></td>
     <td><%= @patient.age %> </td>
     <td><%= @appointment.appointment_date.strftime("%m/%d/%Y %I:%M %p") %></td>
     <td>

@@ -1,0 +1,14 @@
+<h3>Update <%= @patient.name %>'s Patient File</h3>
+
+  <form action="/patients/<%= @patient.id %>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+
+    <table style="width:50%">
+    <td><label>Patient Name: </label>
+    <input type="text" placeholder="<%=@patient.name%>" name="name" id="patient_name"></input></td>
+    <td><label>Patient Age: </label>
+    <input type="text" placeholder="<%=@patient.age%>" name="age" id="patient_age"></input></td>
+    <td><input type="submit" value="Update Patient"></td>
+    </table>
+
+  </form>

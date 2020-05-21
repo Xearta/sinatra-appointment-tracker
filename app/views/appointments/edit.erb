@@ -26,12 +26,47 @@
     <h3>Change The Appointment Date/Time</h3>
     <table style="width:50%">
     <td><label for="date">Appointment Date:</label>
+
+      <%# This is to set the placeholder date in the date input %>
+      <% appt_date = "#{@appointment.appointment_date.year}-" %>
+      <% if @appointment.appointment_date.month < 10 %>
+        <% appt_date += "0" + @appointment.appointment_date.month.to_s %>
+      <% else %>
+        <% appt_date += @appointment.appointment_date.month.to_s %>
+      <% end %>
+      <% appt_date += "-" %>
+      <% if @appointment.appointment_date.day < 10 %>
+        <% appt_date += "0" + @appointment.appointment_date.day.to_s %>
+      <% else %>
+        <% appt_date += @appointment.appointment_date.day.to_s %>
+      <% end %>
+
+    <%= @appointment_date %>
     <input type="date" id="date" name="appointment[date]"
-         value="<%=@appointment.appointment_date.year%>-0<%=@appointment.appointment_date.month%>-<%=@appointment.appointment_date.day%>"
+         value=<%=appt_date%>
          min="2020-05-20" max="2021-12-31"></td>
 
    <td><label for="time">Appointment Time:</label>
-   <input type="time" id="time" value="<%=@appointment.appointment_date.hour%>:<%=@appointment.appointment_date.min%>" name="appointment[time]"></td>
+
+     <%# This is to set the placeholder time in the time input %>
+     <% appt_time = "" %>
+     <% if @appointment.appointment_date.hour < 10 %>
+      <% appt_time += "0" + @appointment.appointment_date.hour.to_s %>
+    <% else %>
+      <% appt_time += @appointment.appointment_date.hour.to_s %>
+    <% end %>
+    <% appt_time += ":" %>
+    <% if @appointment.appointment_date.min < 10 %>
+      <% appt_time += "0" + @appointment.appointment_date.min.to_s %>
+    <% else %>
+      <% appt_time += @appointment.appointment_date.min.to_s %>
+    <% end %>
+
+
+   <input type="time" id="time" value=<%=appt_time%> name="appointment[time]"></td>
+
+
+
   </table>
 
     <input type="submit" value="Update Appointment">

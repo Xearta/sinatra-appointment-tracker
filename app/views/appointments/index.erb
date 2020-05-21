@@ -3,12 +3,16 @@
   <tr>
     <th>Patient Name</th>
     <th>Appointment Date/Time</th>
-    <th>Appointment Info:</th>
+    <th>Appointment Options</th>
   </tr>
 <% @appointments.each do |appointment| %>
   <% if current_user.id == appointment.user_id %>
     <tr>
-      <td><p>Patient: <%= Patient.find(appointment.patient_id).name %> (Age: <%= Patient.find(appointment.patient_id).age %>)</p></td>
+      <td><p>
+        Patient: <a href="/patients/<%=Patient.find(appointment.patient_id).id%>">
+                <%= Patient.find(appointment.patient_id).name %>
+                (Age: <%= Patient.find(appointment.patient_id).age %>)</a>
+      </p></td>
       <td><p>Date/Time: <%= appointment.appointment_date.strftime("%m/%d/%Y %I:%M %p") %> </p></td>
       <td>
       <a href="/appointments/<%=appointment.id%>">View</a>
@@ -27,12 +31,16 @@
     <th>Physician</th>
     <th>Patient</th>
     <th>Appointment Date/Time</th>
-    <th>Appointment Info:</th>
+    <th>Appointment Options</th>
   </tr>
 <% @appointments.each do |appointment| %>
 <tr>
   <td><p>Physician: <%= User.find(appointment.user_id).username %></p></td>
-  <td><p>Patient: <%= Patient.find(appointment.patient_id).name %> (Age: <%= Patient.find(appointment.patient_id).age %>)</p></td>
+  <td><p>
+    Patient: <a href="/patients/<%=Patient.find(appointment.patient_id).id%>">
+    <%= Patient.find(appointment.patient_id).name %>
+    (Age: <%= Patient.find(appointment.patient_id).age %>)</a>
+  </p></td>
   <td><p>Date/Time: <%= appointment.appointment_date.strftime("%m/%d/%Y %I:%M %p") %> </p></td>
   <td>
   <a href="/appointments/<%=appointment.id%>">View</a>

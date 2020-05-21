@@ -1,0 +1,32 @@
+<h3><%=@patient.name%>'s Appointments (<%=@patient.age%> years old)</h3>
+<table style="width:100%">
+  <tr>
+    <th>User (Physician)</th>
+    <th>Appointment Date/Time</th>
+    <th>Options</th>
+    <th>Delete Appointment</th>
+  </tr>
+  <% @appointments.each do |appointment| %>
+    <% if @patient.id == appointment.patient_id %>
+  <tr>
+    <td><p><a href="/appointments"><%= User.all.find(appointment.user_id).username%></a></p></td>
+    <td><p><%= appointment.appointment_date.strftime("%m/%d/%Y %I:%M %p")%></p></td>
+    <td>
+      <a href="/appointments/<%=appointment.id%>">View</a>
+      <a href="/appointments/<%=appointment.id%>/edit">Edit</a>
+    </td>
+    <td>
+      <form method="post" action="/appointments/<%= appointment.id %>/delete">
+        <input id="hidden" type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete Appointment">
+      </form>
+    </td>
+  </tr>
+  <% end %>
+<% end %>
+</table>
+
+<form method="post" action="/patients/<%= @patient.id %>/delete">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Patient">
+</form>

@@ -1,5 +1,4 @@
-<h3>Create An Appointment</h3>
-<p style="text-align:center"><strong>Pick an Existing patient or create a new one! Then, pick a time for the appointment!</strong></p>
+<h3>Create An Appointment /w Existing Patient or a New Patient</h3>
 <p style="text-align:center"><em>*Note: If you enter a patient in the "New Patient" area, you cannot also select an exisiting patient.*</em>
 <br/>
 
@@ -10,7 +9,7 @@
   <div style="display:inline-block;padding:5px"><input type="radio" name="appointment[patient_id]" id="<%= patient.id %>" value="<%= patient.id %>">
             <%= patient.name %> (Age: <%= patient.age %>)</div>
   <% end %>
-
+  <hr>
   <h3>New Patient</h3>
   <table style="width:50%">
   <td><label>Patient Name: </label>
@@ -18,16 +17,17 @@
   <td><label>Patient Age: </label>
   <input type="text" placeholder="Patient Age" name="appointment[patient][age]" id="patient_age"></input></td>
   </table>
-  <br><br>
+  <hr>
+  <h3>Appointment Information</h3>
 
   <table style="width:50%">
   <td><label for="date">Appointment Date:</label>
   <input type="date" id="date" name="appointment[date]"
-       value="2020-05-20"
+       value="2020-06-01"
        min="2020-05-20" max="2021-12-31"></td>
 
  <td><label for="time">Appointment Time:</label>
- <input type="time" id="time" name="appointment[time]"></td>
+ <input type="time" id="time" name="appointment[time]" value="12:00"></td>
 </table>
 
 <input type="submit" value="Create Appointment">

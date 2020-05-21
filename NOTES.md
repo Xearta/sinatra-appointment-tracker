@@ -11,6 +11,11 @@
 # Don't allow booking if the patient already has an appointment at that date/time
 
 
+**BUGS**
+- Fix all error handling
+  - Fix the error on the appointment controller checking for error_message
+  - Don't allow to create an empty appointment/patient
+
 **Requirements:**
 - Build a MVC App
 - Use ActiveRecord
