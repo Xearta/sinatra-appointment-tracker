@@ -12,13 +12,13 @@
     <td><p><a href="/appointments"><%= User.all.find(appointment.user_id).username%></a></p></td>
     <td><p><%= appointment.appointment_date.strftime("%m/%d/%Y %I:%M %p")%></p></td>
     <td>
-      <a href="/appointments/<%=appointment.id%>">View</a>
-      <a href="/appointments/<%=appointment.id%>/edit">Edit</a>
+      <a class="btn btn-info" href="/appointments/<%=appointment.id%>">View</a>
+      <a class="btn btn-warning" href="/appointments/<%=appointment.id%>/edit">Edit</a>
     </td>
     <td>
       <form method="post" action="/appointments/<%= appointment.id %>/delete">
         <input id="hidden" type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Delete Appointment">
+        <input class="btn btn-danger" type="submit" value="Delete Appointment">
       </form>
     </td>
   </tr>
@@ -28,5 +28,5 @@
 
 <form method="post" action="/patients/<%= @patient.id %>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete Patient">
+  <input class="btn btn-danger" type="submit" value="Delete Patient">
 </form>

@@ -1,5 +1,5 @@
 <h3>Create An Appointment /w Existing Patient or a New Patient</h3>
-<p style="text-align:center"><em>*Note: If you enter a patient in the "New Patient" area, you cannot also select an exisiting patient.*</em>
+<p style="text-align:center"><em>*Note: The New Patient fields will take precidence over an existing patient*</em>
 <br/>
 
 <form action="/appointments" method="POST">
@@ -7,7 +7,7 @@
 
   <% @patients.each do |patient| %>
   <div style="display:inline-block;padding:5px">
-    <input type="radio" name="appointment[patient_id]" id="<%= patient.id %>" value="<%= patient.id %>">
+    <input checked type="radio" name="appointment[patient_id]" id="<%= patient.id %>" value="<%= patient.id %>">
     <%= patient.name %> (Age: <%= patient.age %>)
   </div>
   <% end %>

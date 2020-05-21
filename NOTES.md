@@ -8,7 +8,6 @@
 
 **STRETCH GOALS:**
 # Don't allow booking if the patient already has an appointment at that date/time
-# Don't allow deletion of patient if another user has an appoointment with them
 
 
 **BUGS**

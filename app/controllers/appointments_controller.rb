@@ -67,10 +67,6 @@ class AppointmentsController < ApplicationController
     @appointment.appointment_date = dt
 
     @appointment.save
-    # TODO: FIX ME!
-    # unless Appointment.valid_params?(params)
-    #   redirect "/patient/new?error=invalid patient"
-    # end
     redirect '/appointments'
   end
 

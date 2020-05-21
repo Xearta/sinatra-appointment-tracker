@@ -12,8 +12,8 @@
   <td><%=patient.age%> years old</td>
   <td><%=patient.appointments.count%> appointment(s)</td>
   <td>
-    <a href="/patients/<%=patient.id%>">View</a>
-    <a href="/patients/<%=patient.id%>/edit">Edit</a>
+    <a class="btn btn-info" href="/patients/<%=patient.id%>">View</a>
+    <a class="btn btn-warning" href="/patients/<%=patient.id%>/edit">Edit</a>
   </td>
 </tr>
 <% end %>

@@ -20,8 +20,8 @@
       </p></td>
       <td><p>Date/Time: <%= appointment.appointment_date.strftime("%m/%d/%Y %I:%M %p") %> </p></td>
       <td>
-      <a href="/appointments/<%=appointment.id%>">View</a>
-      <a href="/appointments/<%=appointment.id%>/edit">Edit</a>
+      <a class="btn btn-info" href="/appointments/<%=appointment.id%>">View</a>
+      <a class="btn btn-warning" href="/appointments/<%=appointment.id%>/edit">Edit</a>
       </td>
   </tr>
   <% end %>
@@ -52,8 +52,8 @@
   </p></td>
   <td><p>Date/Time: <%= appointment.appointment_date.strftime("%m/%d/%Y %I:%M %p") %> </p></td>
   <td>
-  <a href="/appointments/<%=appointment.id%>">View</a>
-  <a href="/appointments/<%=appointment.id%>/edit">Edit</a>
+  <a class="btn btn-info" href="/appointments/<%=appointment.id%>">View</a>
+  <a class="btn btn-warning" href="/appointments/<%=appointment.id%>/edit">Edit</a>
   </td>
 </tr>
 <% end %>
